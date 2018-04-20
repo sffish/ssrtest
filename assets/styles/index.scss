@@ -1,0 +1,106 @@
+$n_space:5;
+$n_flex:12;
+$gap_space_small:0.5; 
+$gap_space_regular:2;
+$font-size_base:10px;
+$gap_font-size:1px;
+
+$colorlist: (
+   ('red',#dd6159),
+   ('red-dim',#f06963),
+   ('blue',#27b6be),
+   ('police-blue',#23b7e5),
+   ('blue-dim',#2ac3cb),
+   ('dark',#3d4d64),
+   ('dark-dim',#455670),
+   ('green',#dd6159),
+   ('green-dim',#dd6159),
+   ('primary',#2ac3cb),
+   ('primary-dim',#6ED1D6),
+   ('light-gray', #edf3f3),
+   ('gray',#98a3a5)
+);
+
+@function getColor($_color){
+   @each $item in $colorlist {
+      @if nth($item,1) == $_color {
+         @return nth($item,2)
+      }
+   }
+   @return #3d4d64
+}
+
+:global{
+   body{
+      background-color:getColor('blue');
+   }
+   @for $i from 0 through $n_space {
+      .p-#{$i} { padding: 1em* $i * $gap_space_small;  }
+      .pl-#{$i} { padding-left: 1em *$i * $gap_space_small;  }
+      .pr-#{$i} { padding-right: 1em *$i * $gap_space_small;  }
+      .pt-#{$i} { padding-top: 1em *$i * $gap_space_small;  }
+      .pb-#{$i} { padding-bottom: 1em *$i * $gap_space_small;  }
+
+      .m-#{$i} { margin: 1em *$i * $gap_space_small;  }
+      .ml-#{$i} { margin-left: 1em *$i * $gap_space_small;  }
+      .mr-#{$i} { margin-right: 1em *$i * $gap_space_small;  }
+      .mt-#{$i} { margin-top: 1em *$i * $gap_space_small;  }
+      .mb-#{$i} { margin-bottom: 1em *$i * $gap_space_small;  }
+   }
+
+   @for $i from 1 through 9 {
+      .fw-#{$i} { font-weight: $i *100 ; }
+   }
+
+   @each $item in $colorlist {
+      .bg-#{nth($item,1)} { background-color: nth($item,2); }
+      //override .btn-default 
+      .btn.btn-default.bg-#{nth($item,1)} { 
+         background-color: nth($item,2) !important;
+         color:#fff !important;
+      }
+      .btn.btn-default.bg-#{nth($item,1)}:hover { 
+         background-color: nth($item,2) !important;
+         color:#fff !important;
+         opacity:0.8;
+      }
+      .text-#{nth($item,1)} { color: nth($item,2); }
+   }
+
+   @for $i from 1 through $n_space {
+      .w-#{$i} { width: $i * $gap_space_regular em; }
+   }
+
+   @for $i from 1 through $n_flex {
+      .flex-#{$i} { flex: $i; }
+   }
+
+   .dim{
+      opacity:0.8;
+   }
+   .dim-more{
+      opacity:0.5;
+   }
+
+   .text-right { 
+      text-align:right;
+   }
+
+   .text-center { 
+      text-align:center;
+   }
+
+   .text-danger {
+      color: getColor('red');
+   }
+
+   .text-primary {
+      color: getColor('primary');
+   }
+
+   .dib{
+      display:inline-block;
+      vertical-align:middle;
+   }
+
+}

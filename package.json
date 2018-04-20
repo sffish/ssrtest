@@ -1,0 +1,31 @@
+{
+  "name": "ssrtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "emit-file-loader": "0.0.2",
+    "file-loader": "^1.1.11",
+    "isomorphic-style-loader": "^4.0.0",
+    "next": "^5.1.0",
+    "node-sass": "^4.8.3",
+    "raw-loader": "^0.5.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-markdown": "^3.3.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.2"
+  }
+}
