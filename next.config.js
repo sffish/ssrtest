@@ -16,6 +16,14 @@ module.exports = {
 
       const more_rules = [
          {
+          test: /\.md$/,
+           use: [
+             {
+               loader: "raw-loader",
+             }
+           ]  
+         },
+         {
            test: /\.html$/,
            use: [
              {

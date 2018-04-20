@@ -18,7 +18,8 @@ $colorlist: (
    ('primary',#2ac3cb),
    ('primary-dim',#6ED1D6),
    ('light-gray', #edf3f3),
-   ('gray',#98a3a5)
+   ('gray',#98a3a5),
+   ('white',#ffffff)
 );
 
 @function getColor($_color){
@@ -32,8 +33,9 @@ $colorlist: (
 
 :global{
    body{
-      background-color:getColor('blue');
+      background-color:getColor('white');
    }
+   
    @for $i from 0 through $n_space {
       .p-#{$i} { padding: 1em* $i * $gap_space_small;  }
       .pl-#{$i} { padding-left: 1em *$i * $gap_space_small;  }
