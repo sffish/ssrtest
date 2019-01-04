@@ -42,8 +42,7 @@ class Home extends Component {
                   <ul>
                      {MD.map( (postobj,i)=>
                         <li key={i}>
-                           <Link route='post' params={{key:postobj.key, postobj:postobj}} >
-                           {/*<Link href='/post' query={{key:postobj.key, postobj:postobj}} >*/}
+                           <Link route='post' params={{key:postobj.key}} >
                            <a>{postobj.key}</a>
                            </Link>
                         </li> 
