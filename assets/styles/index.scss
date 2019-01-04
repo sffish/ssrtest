@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 $n_space:5;
 $n_flex:12;
 $gap_space_small:0.5; 
@@ -31,9 +33,31 @@ $colorlist: (
    @return #3d4d64
 }
 
-:global{
+
    body{
-      background-color:getColor('white');
+      background-color:getColor('light-gray');
+      font-family: 'PT Sans', 'Noto Sans TC', 'Noto Sans', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', '微軟正黑體', 'Microsoft JhengHei', 'lucida grande', 'tahoma', 'verdana', 'arial', sans-serif;
+      font-size: 16px;
+      
+      h1{
+         font-size: 3rem;
+      }
+
+      h2{
+         font-size: 2rem;
+      }
+
+      h3{
+         font-size: 1.5rem;
+      }
+
+      h5{
+         font-size: 1rem;
+      }
+
+      h6{
+         font-size: 0.8rem;  
+      }
    }
    
    @for $i from 0 through $n_space {
@@ -105,4 +129,3 @@ $colorlist: (
       vertical-align:middle;
    }
 
-}

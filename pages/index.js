@@ -8,11 +8,23 @@ import {Link} from '../routes'
 import {MD} from '../markdown'
 
 
+const isClientOrServer = () => {
+   return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
+};
 
 class Home extends Component {
 
    render(){
-      const facts = ['fact1', 'fact2', 'fact3']
+      const fact1 = "這是一個使用 Next.js 建置，"
+      const fact2 = "並利用 Express serve 的網站。 "
+      // Test by 3G network. It will display 'server' in the first, 
+      // then turn into 'client' as soon as the javascript is fully loaded.
+      // ref: https://blog.theodo.fr/2018/04/react-server-side-rendering/
+      
+      //const fact3 = `This site is rendered by ${isClientOrServer()}!`
+
+      const fact3 = `This page is rendered by server.`
+      const facts = [fact1, fact2, fact3]
       return (
          <div className="">
             <Head>
@@ -21,18 +33,14 @@ class Home extends Component {
             </Head>
             <style jsx global>
             {`
-               
                ${style._getCss()}
-               hr{ border-top:1px solid #333;}
-               
+               hr{ border-top:1px solid #333;} 
             `}
             </style>
-            <div className="content">
+            <div className="content p-5">
                
-               <h1 className="text-danger">
-               hello next.js
-               </h1>
-               {[...facts,'end'].map( (fact,i) => 
+               <h1 className="text-danger">測試一下 Next.js</h1>
+               {[...facts].map( (fact,i) => 
                   <h5 key={i}> 
                      {fact}
                   </h5>

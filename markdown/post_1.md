@@ -1,32 +1,21 @@
-# h1 Post 1 8-)
-
+# 第一篇文章
 ---
-__Advertisement :)__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
-
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
-
 
 ## Horizontal Rules
 
-___
+他們相信在咫尺之遙的未來
 
----
+終點總在那兒等待
 
-***
+參天森林伸入薄暮
+
+簇擁十尺高的大麻火堆
+
+紫色的煙 綠色的燄
+
+人影扭曳閃動 
+
+如從酣冬驚蟄的小蟲
 
 
 ## Typographic replacements
