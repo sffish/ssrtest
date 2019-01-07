@@ -56,9 +56,6 @@ class Home extends Component {
                      )}
                   </ul>
                </div>
-               <div className="sasstest">
-                  <p> jsx sass block </p>
-               </div>
             </div>
             
          </div>
