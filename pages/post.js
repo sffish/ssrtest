@@ -12,14 +12,14 @@ class Post extends Component{
       })
       
       return (
-         <div className="post">
+         <div className="container" >
             <style jsx>{  /* Unfortunately nesting is not supported by styled-jsx. */ 
                ` `
             }
             </style>
-            <div className="content p-5">
+            <div className="content p-5 post">
                {key?
-                  <div className={`p-5`}>
+                  <div className={`p-5 markdown-body`}>
                      <ReactMarkdown source={postobj.source} />
                   </div>:
                   <div>Invalid post entry!</div>

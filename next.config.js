@@ -51,6 +51,20 @@ module.exports = withSass({
          //    ]
          // },
          {
+            test: /\.(css)$/, 
+            use: [
+               {
+                  loader: 'isomorphic-style-loader'
+               },
+               {
+                  loader: 'css-loader',
+                  options: {
+                    minimize: true || {/* CSSNano Options */}
+                  }
+               }
+            ]
+         },
+         {
            test: /\.(jpe?g|png|gif|svg)$/i,
            use: [
              {

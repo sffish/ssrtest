@@ -26,18 +26,16 @@ class Home extends Component {
       const fact3 = `This page is rendered by server.`
       const facts = [fact1, fact2, fact3]
       return (
-         <div className="">
+         <div className="container">
             <Head>
                <title>ssrtest/index</title>
-               
             </Head>
             <style jsx global>
             {  /* Unfortunately nesting is not supported by styled-jsx. */ 
                ` `
             }
             </style>
-            <div className="content p-5">
-               
+            <div className=" content p-5">
                <h1 className="text-danger">測試一下 Next.js</h1>
                {[...facts].map( (fact,i) => 
                   <h5 key={i}> 

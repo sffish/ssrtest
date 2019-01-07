@@ -1,3 +1,4 @@
+@import "primer-markdown/index.scss";
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 $n_space:5;
@@ -33,99 +34,108 @@ $colorlist: (
    @return #3d4d64
 }
 
+/* ============================================================ */
+/* Components                                                   */
+/* ============================================================ */
 
-   body{
-      background-color:getColor('light-gray');
-      font-family: 'PT Sans', 'Noto Sans TC', 'Noto Sans', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', '微軟正黑體', 'Microsoft JhengHei', 'lucida grande', 'tahoma', 'verdana', 'arial', sans-serif;
-      font-size: 16px;
-      
-      h1{
-         font-size: 3rem;
-      }
+body{
+   background-color:getColor('light-gray');
+   font-family: 'PT Sans', 'Noto Sans TC', 'Noto Sans', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', '微軟正黑體', 'Microsoft JhengHei', 'lucida grande', 'tahoma', 'verdana', 'arial', sans-serif;
+   font-size: 16px;
 
-      h2{
-         font-size: 2rem;
-      }
-
-      h3{
-         font-size: 1.5rem;
-      }
-
-      h5{
-         font-size: 1rem;
-      }
-
-      h6{
-         font-size: 0.8rem;  
-      }
+   .container{
+      margin:0 auto 0 auto;
+      min-width: 800px;
+      width:65%;
+      max-width: 1024;
    }
-   
-   @for $i from 0 through $n_space {
-      .p-#{$i} { padding: 1em* $i * $gap_space_small;  }
-      .pl-#{$i} { padding-left: 1em *$i * $gap_space_small;  }
-      .pr-#{$i} { padding-right: 1em *$i * $gap_space_small;  }
-      .pt-#{$i} { padding-top: 1em *$i * $gap_space_small;  }
-      .pb-#{$i} { padding-bottom: 1em *$i * $gap_space_small;  }
+}
 
-      .m-#{$i} { margin: 1em *$i * $gap_space_small;  }
-      .ml-#{$i} { margin-left: 1em *$i * $gap_space_small;  }
-      .mr-#{$i} { margin-right: 1em *$i * $gap_space_small;  }
-      .mt-#{$i} { margin-top: 1em *$i * $gap_space_small;  }
-      .mb-#{$i} { margin-bottom: 1em *$i * $gap_space_small;  }
+@for $i from 0 through $n_space {
+   .p-#{$i} { padding: 1em* $i * $gap_space_small;  }
+   .pl-#{$i} { padding-left: 1em *$i * $gap_space_small;  }
+   .pr-#{$i} { padding-right: 1em *$i * $gap_space_small;  }
+   .pt-#{$i} { padding-top: 1em *$i * $gap_space_small;  }
+   .pb-#{$i} { padding-bottom: 1em *$i * $gap_space_small;  }
+
+   .m-#{$i} { margin: 1em *$i * $gap_space_small;  }
+   .ml-#{$i} { margin-left: 1em *$i * $gap_space_small;  }
+   .mr-#{$i} { margin-right: 1em *$i * $gap_space_small;  }
+   .mt-#{$i} { margin-top: 1em *$i * $gap_space_small;  }
+   .mb-#{$i} { margin-bottom: 1em *$i * $gap_space_small;  }
+}
+
+@for $i from 1 through 9 {
+   .fw-#{$i} { font-weight: $i *100 ; }
+}
+
+@each $item in $colorlist {
+   .bg-#{nth($item,1)} { background-color: nth($item,2); }
+   //override .btn-default 
+   .btn.btn-default.bg-#{nth($item,1)} { 
+      background-color: nth($item,2) !important;
+      color:#fff !important;
    }
-
-   @for $i from 1 through 9 {
-      .fw-#{$i} { font-weight: $i *100 ; }
-   }
-
-   @each $item in $colorlist {
-      .bg-#{nth($item,1)} { background-color: nth($item,2); }
-      //override .btn-default 
-      .btn.btn-default.bg-#{nth($item,1)} { 
-         background-color: nth($item,2) !important;
-         color:#fff !important;
-      }
-      .btn.btn-default.bg-#{nth($item,1)}:hover { 
-         background-color: nth($item,2) !important;
-         color:#fff !important;
-         opacity:0.8;
-      }
-      .text-#{nth($item,1)} { color: nth($item,2); }
-   }
-
-   @for $i from 1 through $n_space {
-      .w-#{$i} { width: $i * $gap_space_regular em; }
-   }
-
-   @for $i from 1 through $n_flex {
-      .flex-#{$i} { flex: $i; }
-   }
-
-   .dim{
+   .btn.btn-default.bg-#{nth($item,1)}:hover { 
+      background-color: nth($item,2) !important;
+      color:#fff !important;
       opacity:0.8;
    }
-   .dim-more{
-      opacity:0.5;
-   }
+   .text-#{nth($item,1)} { color: nth($item,2); }
+}
 
-   .text-right { 
-      text-align:right;
-   }
+@for $i from 1 through $n_space {
+   .w-#{$i} { width: $i * $gap_space_regular em; }
+}
 
-   .text-center { 
-      text-align:center;
-   }
+@for $i from 1 through $n_flex {
+   .flex-#{$i} { flex: $i; }
+}
 
-   .text-danger {
-      color: getColor('red');
-   }
+h1{
+   font-size: 3rem;
+}
 
-   .text-primary {
-      color: getColor('primary');
-   }
+h2{
+   font-size: 2rem;
+}
 
-   .dib{
-      display:inline-block;
-      vertical-align:middle;
-   }
+h3{
+   font-size: 1.5rem;
+}
 
+h5{
+   font-size: 1rem;
+}
+
+h6{
+   font-size: 0.8rem;  
+}
+
+.dim{
+   opacity:0.8;
+}
+.dim-more{
+   opacity:0.5;
+}
+
+.text-right { 
+   text-align:right;
+}
+
+.text-center { 
+   text-align:center;
+}
+
+.text-danger {
+   color: getColor('red');
+}
+
+.text-primary {
+   color: getColor('primary');
+}
+
+.dib{
+   display:inline-block;
+   vertical-align:middle;
+}
