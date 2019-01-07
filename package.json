@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "css-loader": "^0.28.11",
     "emit-file-loader": "0.0.2",
     "express": "^4.16.3",

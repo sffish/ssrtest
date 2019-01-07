@@ -32,8 +32,9 @@ class Home extends Component {
                
             </Head>
             <style jsx global>
-            {`
-            `}
+            {  /* Unfortunately nesting is not supported by styled-jsx. */ 
+               ` `
+            }
             </style>
             <div className="content p-5">
                
@@ -54,6 +55,9 @@ class Home extends Component {
                         </li> 
                      )}
                   </ul>
+               </div>
+               <div className="sasstest">
+                  <p> jsx sass block </p>
                </div>
             </div>
             

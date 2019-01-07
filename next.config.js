@@ -1,15 +1,13 @@
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  webpack(config, { dev }) {
-      // modify it!
-      //console.log(JSON.stringify(config.output, null, 3))
+const withSass = require('@zeit/next-sass')
 
-      
+module.exports = withSass({
+  webpack(config, { dev }) {
+
       const entry_func= function() {
          return config.entry().then((entry) => {
             return Object.assign({}, entry, { 
-               //'style.css':'/Users/sffish/ssrtest/assets/styles/index.scss'
             })
          })
       }
@@ -34,29 +32,24 @@ module.exports = {
              }
            ]
          },
-         {
-            test: /\.(css|scss)$/, 
-            use: [
-               {
-                  loader: 'isomorphic-style-loader'
-               },
-               // {
-               //    loader: 'emit-file-loader',
-               //    options: {
-               //       name: 'dist/[path][name].[ext]'
-               //    }
-               // },
-               {
-                  loader: 'css-loader',
-                  options: {
-                    minimize: true || {/* CSSNano Options */}
-                  }
-               },
-               {
-                  loader: 'sass-loader'
-               }
-            ]
-         },
+         // Turn off css and sass loader to avoid duplicatedly apply sass rules.  
+         // {
+         //    test: /\.(css|scss)$/, 
+         //    use: [
+         //       {
+         //          loader: 'isomorphic-style-loader'
+         //       },
+         //       {
+         //          loader: 'css-loader',
+         //          options: {
+         //            minimize: true || {/* CSSNano Options */}
+         //          }
+         //       },
+         //       {
+         //          loader: 'sass-loader'
+         //       }
+         //    ]
+         // },
          {
            test: /\.(jpe?g|png|gif|svg)$/i,
            use: [
@@ -88,19 +81,20 @@ module.exports = {
       ]
 
    
-      return {...config, 
-         entry:entry_func,
-         module:{
-            ...config.module,
-            rules:[
-               ...config.module.rules,
-               ...more_rules
-            ]
-         },
-         plugins:[
-            ...config.plugins,
-            ...more_plugins
-         ]
+      return {
+        ...config, 
+        entry:entry_func,
+        module:{
+          ...config.module,
+          rules:[
+             ...config.module.rules,
+             ...more_rules
+          ]
+        },
+        plugins:[
+          ...config.plugins,
+          ...more_plugins
+        ]
       };
   }
-}
+})

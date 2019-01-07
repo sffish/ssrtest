@@ -13,7 +13,9 @@ class Post extends Component{
       
       return (
          <div className="post">
-            <style jsx>{` `}
+            <style jsx>{  /* Unfortunately nesting is not supported by styled-jsx. */ 
+               ` `
+            }
             </style>
             <div className="content p-5">
                {key?
