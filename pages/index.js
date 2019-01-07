@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import style from '../assets/styles/index.scss';
+import '../assets/styles/index.scss';
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown';
 //import Link from 'next/link'
@@ -33,8 +33,6 @@ class Home extends Component {
             </Head>
             <style jsx global>
             {`
-               ${style._getCss()}
-               hr{ border-top:1px solid #333;} 
             `}
             </style>
             <div className="content p-5">

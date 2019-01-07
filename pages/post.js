@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Head from 'next/head'
-import style from '../assets/styles/index.scss';
+import '../assets/styles/index.scss';
 import ReactMarkdown from 'react-markdown' 
 import {MD} from '../markdown'
 
@@ -13,12 +13,7 @@ class Post extends Component{
       
       return (
          <div className="post">
-            <style jsx>
-            {`
-               
-               ${style._getCss()}
-               
-            `}
+            <style jsx>{` `}
             </style>
             <div className="content p-5">
                {key?
