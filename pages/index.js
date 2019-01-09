@@ -26,36 +26,41 @@ class Home extends Component {
       const fact3 = `This page is rendered by server.`
       const facts = [fact1, fact2, fact3]
       return (
-         <div className="container">
+         <div className="__wrapper__">
             <Head>
-               <title>ssrtest/index</title>
-            </Head>
+                  <title>ssrtest/index</title>
+               </Head>
             <style jsx global>
             {  /* Unfortunately nesting is not supported by styled-jsx. */ 
                ` `
             }
             </style>
-            <div className=" content p-5">
-               <h1 className="text-danger">測試一下 Next.js</h1>
-               {[...facts].map( (fact,i) => 
-                  <h5 key={i}> 
-                     {fact}
-                  </h5>
-               )}
-               <hr />
-               <div className="post-list">
-                  <ul>
-                     {MD.map( (postobj,i)=>
-                        <li key={i}>
-                           <Link route='post' params={{key:postobj.key}} >
-                           <a>{postobj.key}</a>
-                           </Link>
-                        </li> 
-                     )}
-                  </ul>
+            {/* Banner Container */}
+            <div className="banner-container">
+               <div id="tenten"></div>
+               <div className="title">
+                  <p className="h1">The Most</p>
+                  <p className="h1">Bored Cat</p>
+                  <p className="h1">In The World</p>
                </div>
+            </div>  
+            {/* Container */} 
+            <div className="container">
+               <div className=" content p-5">
+                  <div className="post-list">
+                     <ul>
+                        {MD.map( (postobj,i)=>
+                           <li key={i}>
+                              <Link route='post' params={{key:postobj.key}} >
+                              <a>{postobj.key}</a>
+                              </Link>
+                           </li> 
+                        )}
+                     </ul>
+                  </div>
+               </div>
+               
             </div>
-            
          </div>
       )
    }

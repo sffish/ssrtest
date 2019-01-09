@@ -11,6 +11,9 @@ $gap_font-size:1px;
 $colorlist: (
    ('red',#dd6159),
    ('red-dim',#f06963),
+   ('lighter-yellow',#fed408),
+   ('yellow',#F2BE23),
+   ('yellow-dim',#b49a32),
    ('blue',#27b6be),
    ('police-blue',#23b7e5),
    ('blue-dim',#2ac3cb),
@@ -18,6 +21,7 @@ $colorlist: (
    ('dark-dim',#455670),
    ('green',#dd6159),
    ('green-dim',#dd6159),
+   ('mold-green',#97B1A6),
    ('primary',#2ac3cb),
    ('primary-dim',#6ED1D6),
    ('light-gray', #edf3f3),
@@ -39,17 +43,88 @@ $colorlist: (
 /* ============================================================ */
 
 body{
-   background-color:getColor('light-gray');
+   background-color:getColor('white');
    font-family: 'PT Sans', 'Noto Sans TC', 'Noto Sans', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', '微軟正黑體', 'Microsoft JhengHei', 'lucida grande', 'tahoma', 'verdana', 'arial', sans-serif;
    font-size: 16px;
-
-   .container{
+   line-height: 1.5em;
+   padding:0;
+   margin: 0;
+   position:relative;
+   .__wrapper__{
+      padding:0;
+      margin: 0;
+      position:relative;
+      width:100%;
+   }
+   .container, .banner-container>.inner{
       margin:0 auto 0 auto;
       min-width: 800px;
       width:65%;
       max-width: 1024;
+      position:relative;
+   }
+   
+   .banner-container {
+      position:relative;
+      background-color: getColor('yellow');
+      border-top:1px solid getColor('yellow'); /* to avoid Collapsing margins */
+      border-bottom:1px solid getColor('yellow'); /* to avoid Collapsing margins */
+      color: getColor('white');
+      height: 600px;
+      padding:3rem 1rem 1rem 1rem;
+      h1{
+         font-weight: 500;
+         font-size: 6rem;
+         text-shadow: 0 0 5px getColor('lighter-yellow');
+      }
+      #tenten{
+         position:absolute;
+         bottom:0;
+         left: -31px;
+         width: 551px;
+         height: 596px;
+         background-image: url('../images/tenten.png');
+         background-size:cover;
+         background-position: 0 100px;
+         background-repeat:no-repeat;
+      }
+      .title{
+         position:absolute;
+         right:100px;
+         top:100px;
+         text-align: center;
+         p.h1{
+            font-weight: 700;
+            font-size: 64px;
+            color: getColor('mold-green');
+            text-shadow: 0 0 5px getColor('green-dim');
+         }
+      }
+   }
+
+   a{
+      color: getColor('red-dim');
+      text-decoration: none;
+   }
+
+   a:hover{
+      color: getColor('red');
+      text-decoration: none;
+   }
+   
+   ul{
+      padding-left:0;
+      li{
+         list-style: none;
+      }
+   }
+
+   hr{
+      border-top: none;
+      border-bottom: 1px solid getColor('white');
    }
 }
+
 
 @for $i from 0 through $n_space {
    .p-#{$i} { padding: 1em* $i * $gap_space_small;  }
@@ -92,8 +167,13 @@ body{
    .flex-#{$i} { flex: $i; }
 }
 
+h1,h2,h3,h4,h5,h6{
+   line-height: 1.5em;
+   margin:0.5em 0 0 0 ;
+}
+
 h1{
-   font-size: 3rem;
+   font-size: 3rem;   
 }
 
 h2{
@@ -109,7 +189,7 @@ h5{
 }
 
 h6{
-   font-size: 0.8rem;  
+   font-size: 0.8rem; 
 }
 
 .dim{

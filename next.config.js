@@ -64,26 +64,26 @@ module.exports = withSass({
                }
             ]
          },
+         
          {
            test: /\.(jpe?g|png|gif|svg)$/i,
            use: [
              {
                loader: "file-loader",
-               query: {
-                 hash: "sha512",
-                 digest: "hex",
-                 name: "public/[path][hash].[ext]"
+               options:{
+                publicPath: '/_next/static/images', 
+                outputPath: 'static/images'
                }
              }
            ]
-         },     
+         }, 
          {
            test: /\.(eot|ttf|woff|woff2)$/,
            use: [
              {
                loader: "file-loader",
                query: {
-                 name: "public/fonts/[name].[ext]"
+                 name: "fonts/[name].[ext]"
                }
              }
            ]
