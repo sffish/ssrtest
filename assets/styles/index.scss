@@ -119,7 +119,8 @@ body{
       .title-box{
          position:relative;
          margin-top: 87px;
-         margin-left: calc( 0.43 * 100vw );
+         margin-right: calc( 0.12 * 100vw );
+         margin-left: auto;
          width: 655px;
          display: flex;
          flex-direction: column;
