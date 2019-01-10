@@ -1,5 +1,7 @@
 import {Component} from 'react';
 import '../assets/styles/index.scss';
+
+
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown';
 //import Link from 'next/link'
@@ -7,6 +9,10 @@ import {Link} from '../routes'
 
 import {MD} from '../markdown'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+library.add(faGithub)
 
 const isClientOrServer = () => {
    return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
@@ -37,13 +43,37 @@ class Home extends Component {
             </style>
             {/* Banner Container */}
             <div className="banner-container">
-               <div id="tenten"></div>
-               <div className="title">
-                  <p className="h1">The Most</p>
-                  <p className="h1">Bored Cat</p>
-                  <p className="h1">In The World</p>
+               <div className="top">
+                  <a href="https://github.com/sffish/ssrtest" target="_blank">
+                     <FontAwesomeIcon icon={['fab', 'github']}/> <span> github project page</span>
+                  </a>
                </div>
-            </div>  
+               <div id="tenten"></div>
+               
+               <div className="title-box flex-row">
+                  <div className="title">
+                     <p className="h1">Negligible</p>
+                     <p className="h1">Matters</p>
+                  </div>
+                  
+                  <div className="flex-row">
+                     <div className="title-local dib">
+                        <div className="logo dib"><div className="circle">
+                           <div className="line">貓不</div>
+                           <div className="line">理我</div>
+                        </div>
+                        </div>
+                        <div className="separator-vertical dib"></div>
+                        <div className="name dib">SFF的廢文基地</div>
+                     </div>
+
+                     <div className="note dib">
+                        <p>This site is built with <strong>Next.js.</strong></p>
+                        <p>It’s rendered on server!</p>
+                     </div>
+                  </div>
+               </div> 
+            </div> 
             {/* Container */} 
             <div className="container">
                <div className=" content p-5">
