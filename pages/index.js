@@ -40,6 +40,7 @@ class Home extends Component {
             <div className="g-rectpic">
                <div className={ is_dummy ?'g-fill':'g-mask' }></div>
             </div>
+            <div className={`g-tenten-${_index+1}`}></div>
          </div>
       }
 
@@ -108,7 +109,10 @@ class Home extends Component {
             </div> 
             {/* Container */} 
             <div className="body-container">
-               {this.renderPosts()}
+               
+                  <div className="pad-top"></div>
+                  {this.renderPosts()}
+               
             </div>
             <footer>
                <div className="row mb-2">
