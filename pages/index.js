@@ -20,6 +20,38 @@ const isClientOrServer = () => {
 
 class Home extends Component {
 
+   renderPosts(){
+      const n = MD && MD.length ? ( MD.length % 3 === 0 ? MD.length :  MD.length + 3 - MD.length % 3 ) : 0    
+      
+      const renderPostGrid = ( _index ) => {
+         const is_dummy = _index > MD.length - 1
+         const postobj = is_dummy ? null : MD[_index]
+         
+         return <div className="grid" key={_index}>
+            <div className="g-text">
+               {is_dummy ? 
+                  <br/ >
+                  :
+                  <Link route='post' params={{key:postobj.key}} >
+                     <a>{postobj.key}</a>
+                  </Link>
+               }
+            </div>
+            <div className="g-rectpic">
+               <div className={ is_dummy ?'g-fill':'g-mask' }></div>
+            </div>
+         </div>
+      }
+
+      return <div className="postgrid-container">
+         {
+            Array.apply(null, { length:n }).map( ( _ ,index)=>{
+               return renderPostGrid(index)
+            })
+         }
+      </div>
+   }
+   
    render(){
       const fact1 = "這是一個使用 Next.js 建置，"
       const fact2 = "並利用 Express serve 的網站。 "
@@ -75,22 +107,17 @@ class Home extends Component {
                </div> 
             </div> 
             {/* Container */} 
-            <div className="container">
-               <div className=" content p-5">
-                  <div className="post-list">
-                     <ul>
-                        {MD.map( (postobj,i)=>
-                           <li key={i}>
-                              <Link route='post' params={{key:postobj.key}} >
-                              <a>{postobj.key}</a>
-                              </Link>
-                           </li> 
-                        )}
-                     </ul>
-                  </div>
-               </div>
-               
+            <div className="body-container">
+               {this.renderPosts()}
             </div>
+            <footer>
+               <div className="row mb-2">
+                  <div className="separator-footer dib"></div>
+               </div>
+               <div className="row">
+                  <div className="copyright dib">Copyright © 2019 SFFISH. All rights reserved</div>
+               </div>
+            </footer>   
          </div>
       )
    }
