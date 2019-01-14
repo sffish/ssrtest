@@ -14,9 +14,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 library.add(faGithub)
 
-const isClientOrServer = () => {
-   return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
-};
+
+const SITE={
+   NAME:<div>
+      <p className="h1">Negligible</p><p className="h1">Matters</p>
+      </div>, 
+   LOCAL_NAME:'SFF的文字基地',
+   LOGO: <div className="logo dib">
+      <div className="circle">
+         <div className="line">貓不</div>
+         <div className="line">理我</div>
+      </div>
+   </div>, 
+   NOTE:<div>
+      <p>This site is built with <strong>Next.js.</strong></p>
+      <p>It’s rendered on server!</p>
+   </div>
+}
 
 class Home extends Component {
 
@@ -52,15 +66,41 @@ class Home extends Component {
          }
       </div>
    }
+
+   renderBanner(){
+      return <div className="banner-container">
+         {/* Desktop */}
+         <div className="top">
+            <a href="https://github.com/sffish/ssrtest" target="_blank">
+               <FontAwesomeIcon icon={['fab', 'github']}/> <span> github project page</span>
+            </a>
+         </div>
+         <div id="tenten"></div>
+         
+         <div className="title-box flex-row">
+            <div className="title">
+               {SITE.NAME}
+            </div>
+            
+            <div className="flex-row">
+               <div className="title-local dib">
+                  {SITE.LOGO}
+                  <div className="separator-vertical dib"></div>
+                  <div className="name dib">{SITE.LOCAL_NAME}</div>
+               </div>
+
+               <div className="note dib">
+                  {SITE.NOTE}
+               </div>
+            </div>
+         </div>
+      </div>   
+      
+   }
    
    render(){
       const fact1 = "這是一個使用 Next.js 建置，"
       const fact2 = "並利用 Express serve 的網站。 "
-      // Test by 3G network. It will display 'server' in the first, 
-      // then turn into 'client' as soon as the javascript is fully loaded.
-      // ref: https://blog.theodo.fr/2018/04/react-server-side-rendering/
-      
-      //const fact3 = `This site is rendered by ${isClientOrServer()}!`
 
       const fact3 = `This page is rendered by server.`
       const facts = [fact1, fact2, fact3]
@@ -76,38 +116,7 @@ class Home extends Component {
             }
             </style>
             {/* Banner Container */}
-            <div className="banner-container">
-               <div className="top">
-                  <a href="https://github.com/sffish/ssrtest" target="_blank">
-                     <FontAwesomeIcon icon={['fab', 'github']}/> <span> github project page</span>
-                  </a>
-               </div>
-               <div id="tenten"></div>
-               
-               <div className="title-box flex-row">
-                  <div className="title">
-                     <p className="h1">Negligible</p>
-                     <p className="h1">Matters</p>
-                  </div>
-                  
-                  <div className="flex-row">
-                     <div className="title-local dib">
-                        <div className="logo dib"><div className="circle">
-                           <div className="line">貓不</div>
-                           <div className="line">理我</div>
-                        </div>
-                        </div>
-                        <div className="separator-vertical dib"></div>
-                        <div className="name dib">SFF的廢文基地</div>
-                     </div>
-
-                     <div className="note dib">
-                        <p>This site is built with <strong>Next.js.</strong></p>
-                        <p>It’s rendered on server!</p>
-                     </div>
-                  </div>
-               </div> 
-            </div> 
+            {this.renderBanner()}
             {/* Container */} 
             <div className="body-container">
                
