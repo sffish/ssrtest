@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import '../assets/styles/index.scss';
 
 
@@ -35,27 +35,47 @@ const SITE={
 class Home extends Component {
 
    renderPosts(){
-      const n = MD && MD.length ? ( MD.length % 3 === 0 ? MD.length :  MD.length + 3 - MD.length % 3 ) : 0    
-      
+      const _n = MD && MD.length ? ( MD.length % 3 === 0 ? MD.length :  MD.length+ (3 - MD.length % 3) ) : 0    
+      const n = _n%2==0 ? _n : _n + 1;
+
       const renderPostGrid = ( _index ) => {
          const is_dummy = _index > MD.length - 1
+         const is_two_column_dummy = (_n%2) !==0 && _index === n-1
          const postobj = is_dummy ? null : MD[_index]
          
-         return <div className="grid" key={_index}>
-            <div className="g-text">
-               {is_dummy ? 
+         return is_two_column_dummy ?
+            <div className={`grid ${is_two_column_dummy ?'two-column-dummy':''}`} key={_index}>
+               <div className="g-pad-top"></div>
+               <div className={`g-fill`}></div>
+               <div className={`g-content blank`}>
                   <br/ >
+               </div>
+            </div>
+            :
+            <div className="grid" key={_index}>
+               <div className="g-pad-top"></div>
+               {is_dummy? 
+                  <React.Fragment>
+                     <div className={`g-fill`}></div>
+                     <div className={`g-content blank`}>
+                        <br/ >
+                     </div>
+                  </React.Fragment>
                   :
-                  <Link route='post' params={{key:postobj.key}} >
-                     <a>{postobj.key}</a>
-                  </Link>
+                  <React.Fragment>
+                     <div className="g-fill-top"></div> 
+                     <div className="g-fill-down"></div>
+                     <div className="g-fill-left"></div>
+                     <div className="g-fill-right"></div>
+                     <div className={`g-content`}>
+                        <Link route='post' params={{key:postobj.key}} >
+                           <a>{postobj.key}</a>
+                        </Link>
+                     </div>
+                     <div className={`g-tenten-${_index+1}`}></div>
+                  </React.Fragment>
                }
             </div>
-            <div className="g-rectpic">
-               <div className={ is_dummy ?'g-fill':'g-mask' }></div>
-            </div>
-            <div className={`g-tenten-${_index+1}`}></div>
-         </div>
       }
 
       return <div className="postgrid-container">
