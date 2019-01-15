@@ -139,12 +139,12 @@ body{
          #tenten{
             position:absolute;
             bottom:0;
-            left: -60px;
+            left: 0;
             width: 650px;
             height: 650px;
             background-image: url('../images/tenten01.png');
             background-size:cover;
-            background-position: 0 110px;
+            background-position: -60px 110px;
             background-repeat:no-repeat;
          }
 
@@ -446,9 +446,11 @@ h6{
       .__wrapper__{
          .banner-container{
             overflow-y: visible;
+
             #tenten{
                width: calc(500px + 100vw * 0.125);
                height: calc(500px + 100vw * 0.125);
+               max-width:100vw;
             }
             .title-box{
                width: 100%;
