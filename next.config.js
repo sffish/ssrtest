@@ -1,10 +1,8 @@
-//const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const withSass = require('@zeit/next-sass')
+const path = require('path');
 
 module.exports = withSass({
   webpack(config, { dev }) {
-
       const entry_func= function() {
          return config.entry().then((entry) => {
             return Object.assign({}, entry, { 
@@ -32,24 +30,6 @@ module.exports = withSass({
              }
            ]
          },
-         // Turn off css and sass loader to avoid duplicatedly apply sass rules.  
-         // {
-         //    test: /\.(css|scss)$/, 
-         //    use: [
-         //       {
-         //          loader: 'isomorphic-style-loader'
-         //       },
-         //       {
-         //          loader: 'css-loader',
-         //          options: {
-         //            minimize: true || {/* CSSNano Options */}
-         //          }
-         //       },
-         //       {
-         //          loader: 'sass-loader'
-         //       }
-         //    ]
-         // },
          {
             test: /\.(css)$/, 
             use: [
@@ -110,5 +90,6 @@ module.exports = withSass({
           ...more_plugins
         ]
       };
-  }
+  },
+  distDir: 'build'
 })
