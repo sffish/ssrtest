@@ -91,5 +91,9 @@ module.exports = withSass({
         ]
       };
   },
-  distDir: 'build'
+  distDir: 'build',
+  generateBuildId: async () => {
+    // In order to 
+    return 'v1'
+  }
 })
