@@ -1,7 +1,7 @@
 {
   "name": "ssrtest",
   "version": "1.0.0",
-  "description": "",
+  "description": "ssrtest",
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
@@ -9,7 +9,11 @@
     "start": "NODE_ENV=production node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "sffish",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sffish/ssrtest.git"
+  },
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -23,7 +27,7 @@
     "file-loader": "^1.1.11",
     "isomorphic-style-loader": "^4.0.0",
     "next": "^7.0.2",
-    "next-routes": "^1.4.1",
+    "next-routes": "^1.4.2",
     "node-sass": "^4.11.0",
     "primer-markdown": "^3.7.11",
     "raw-loader": "^0.5.1",
@@ -35,7 +39,6 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
-    "extract-text-webpack-plugin": "^3.0.2",
     "styled-jsx-plugin-sass": "^1.0.0"
   }
 }
