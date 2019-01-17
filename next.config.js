@@ -10,6 +10,7 @@ module.exports = withSass({
          })
       }
 
+      const publicPath = dev ? '/_next/static/images' : '/demo/_next/static/images'
       const more_rules = [
          {
           test: /\.md$/,
@@ -51,7 +52,7 @@ module.exports = withSass({
              {
                loader: "file-loader",
                options:{
-                publicPath: '/_next/static/images', 
+                publicPath: publicPath,
                 outputPath: 'static/images'
                }
              }
