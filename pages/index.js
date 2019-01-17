@@ -16,6 +16,7 @@ library.add(faGithub)
 
 
 const SITE={
+   TITLE:'Negligible Matters',
    NAME:<div>
       <p className="h1">Negligible</p><p className="h1">Matters</p>
       </div>, 
@@ -127,7 +128,7 @@ class Home extends Component {
       return (
          <div className="__wrapper__">
             <Head>
-               <title>ssrtest/index</title>
+               <title>{SITE.TITLE}</title>
                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <style jsx global>
