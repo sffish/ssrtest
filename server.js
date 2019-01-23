@@ -10,7 +10,7 @@ const express = require('express')
 const myhandler = (req, res)=>{
   //Add assetPrefix support based on the hostname
     if (req.headers.host === 'sffish.me') {
-      app.setAssetPrefix('http://sffish.me/demo/')
+      app.setAssetPrefix('https://sffish.me/demo/')
     } else {
       app.setAssetPrefix('')
     }
