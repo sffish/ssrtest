@@ -12,12 +12,23 @@ https://sffish.me/demo/
 npm  install
 ```
 
-- start the sever in development
+### start the sever in development
 ```
 node server.js
 ```
 The site will be served at `localhost:3000/`.
 
+
+### start the sever in production
+```
+npm run build
+```
+
+```
+npm run start
+```
+
+The site will be served at `localhost:3000/`.
 
 ### Change the Route
 
